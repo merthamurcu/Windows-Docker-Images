@@ -1,5 +1,5 @@
-ARG VERSION="2020.1.4292"
-ARG WINDOWS_VERSION=1809
+ARG VERSION="2025.2.15055"
+ARG WINDOWS_VERSION=ltsc2022
 FROM mcr.microsoft.com/windows/servercore:${WINDOWS_VERSION} as install
 ARG VERSION
 SHELL ["powershell", "-Command", "$ErrorActionPreference = 'Stop'; $ProgressPreference = 'SilentlyContinue';"]
