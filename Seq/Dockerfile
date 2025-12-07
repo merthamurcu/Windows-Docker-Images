@@ -6,6 +6,6 @@ SHELL ["powershell", "-Command", "$ErrorActionPreference = 'Stop'; $ProgressPref
 WORKDIR C:/seq
 RUN iwr https://datalust.co/download/begin?version=${Env:VERSION} -o seq.msi
 RUN Start-Process -FilePath msiexec.exe -Wait -ArgumentList @('/package', 'seq.msi', '/quiet', '/log', 'seq.txt')
-COPY ["./run.ps1", "."]
+
 EXPOSE 5341
-ENTRYPOINT ["powershell.exe", "./run.ps1"]
+ENTRYPOINT ["C:\\Program Files\\Seq\\seq.exe", "run", "--storage=C:\\seq\\data", "--listen=http://0.0.0.0:5341"]
